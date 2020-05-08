@@ -32,6 +32,8 @@ import com.cirrus_farm_technology.api.enums.PerfilEnum;
 public class Funcionario implements Serializable{
 
 	
+	private static final long serialVersionUID = -5026666918214307782L;
+	
 	private Long id;
 	private String nome;
 	private String email;
@@ -44,8 +46,7 @@ public class Funcionario implements Serializable{
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	private Empresa empresa;
-	private transient List<Lancamento> lancamentos;
-	
+	private List<Lancamento> lancamentos;
 	
 	
 	public Funcionario() {
@@ -207,13 +208,13 @@ public class Funcionario implements Serializable{
 	}
 
 
-
+	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;
 	}
 
 
-	@OneToMany(mappedBy = "funcionario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)	
+
 	public void setLancamentos(List<Lancamento> lancamentos) {
 		this.lancamentos = lancamentos;
 	}

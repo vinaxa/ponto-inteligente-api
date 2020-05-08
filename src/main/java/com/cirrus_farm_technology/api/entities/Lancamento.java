@@ -24,6 +24,9 @@ import com.cirrus_farm_technology.api.enums.TipoEnum;
 @Table(name = "lancamento")
 public class Lancamento implements Serializable{
 
+
+	private static final long serialVersionUID = -8523432875870110672L;
+
 	private Long id;
 	private Date data;
 	private String descricao;
@@ -116,7 +119,7 @@ public class Lancamento implements Serializable{
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-	
+
 		
 	@PreUpdate
 	public void preUpdate() {
