@@ -77,7 +77,7 @@ public class LancamentoController {
 	Response<Page<LancamentoDto>> response = new Response<Page<LancamentoDto>>();
 	
 	
-	PageRequest pageRequest = PageRequest.of(pag, this.qtdPorPagina, Sort.by(Sort.Direction.DESC, "createdAt"));
+	PageRequest pageRequest = PageRequest.of(pag, qtdPorPagina, Direction.valueOf(dir), ord);
 	Page<Lancamento> lancamentos = this.lancamentoService.buscarPorFuncionarioId(funcionarioId, pageRequest);
 	Page<LancamentoDto> lancamentosDto = lancamentos.map(lancamento -> this.converterLancamentoDto(lancamento));
 	
